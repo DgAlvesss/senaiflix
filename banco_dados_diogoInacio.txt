@@ -1,0 +1,149 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 14-Jun-2024 às 03:06
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Banco de dados: `senaiflix_diogoinacio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `cep` varchar(8) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tabela_assinatura`
+--
+
+CREATE TABLE `tabela_assinatura` (
+  `id` int(11) NOT NULL,
+  `id_clientes` int(11) NOT NULL,
+  `plano` varchar(50) NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL,
+  `status` int(20) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tabela_filmes`
+--
+
+CREATE TABLE `tabela_filmes` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `descricao` text NOT NULL,
+  `ano_lancamento` year(4) NOT NULL,
+  `genero` varchar(100) NOT NULL,
+  `classificacao` varchar(10) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tabela_usuarios`
+--
+
+CREATE TABLE `tabela_usuarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tabela_assinatura`
+--
+ALTER TABLE `tabela_assinatura`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tabela_filmes`
+--
+ALTER TABLE `tabela_filmes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tabela_usuarios`
+--
+ALTER TABLE `tabela_usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `tabela_assinatura`
+--
+ALTER TABLE `tabela_assinatura`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tabela_filmes`
+--
+ALTER TABLE `tabela_filmes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tabela_usuarios`
+--
+ALTER TABLE `tabela_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;

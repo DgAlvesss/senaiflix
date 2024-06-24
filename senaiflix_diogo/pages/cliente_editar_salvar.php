@@ -20,13 +20,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $telefone = $_POST['telefone'];
     $data_atualizacao = date("Y-m-d H:i:s");
 
-    $q="UPDATE clientes SET nome='dasdasdsad',cpf='$cpf',bairro='$bairro',cidade='$cidade',estado='$estado',cep='$cep',email='$email',telefone='$telefone',data_atualizacao='$data_atualizacao' WHERE id='$id'";
+    $q="UPDATE clientes SET nome='$nome',cpf='$cpf',bairro='$bairro',cidade='$cidade',estado='$estado',cep='$cep',email='$email',telefone='$telefone',data_atualizacao='$data_atualizacao' WHERE id='$id'";
         if($conn->query($q)==TRUE){
             echo "Cadastro Atualizado com sucesso";
         }else{
             echo "Erro em atualizar";
         }
+        header('Location:../index.php?paginas=cliente_listar');
 }  
-header('Location: ../index.php?paginas=listar_cliente');
 
-?>
+
+?> 

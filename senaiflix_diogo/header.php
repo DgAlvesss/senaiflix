@@ -10,12 +10,13 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?paginas=listar_cliente">Clientes</a>
+                    <a class="nav-link" href="index.php?paginas=cliente_listar">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?pagina=fale_conosco">Contato</a>
+                    <a class="nav-link" href="index.php?paginas=filmes_listar">Filmes</a>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
+

@@ -21,7 +21,7 @@ $linha=$resultado->fetch_assoc();
     <body>
     
         <title>Edição</title>
-        <form  action='pages/cliente_editar_salvar.php' method='post'>
+        <form  action='pages/cliente_editar_salvar.php?id=<?php echo $linha['id'];?>' method='post'>
             <label for = "nome">Nome Completo: </label>
             <input type="text" id='nome' name='nome' value ="<?php echo $linha['nome'];?>"><br><br>
 

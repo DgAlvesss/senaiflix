@@ -30,5 +30,5 @@ if ($conn->query($sql) === TRUE) {
  
 }
 
-header('location: index.php')
+header('Location:../index.php?paginas=cliente_listar');
 ?>
